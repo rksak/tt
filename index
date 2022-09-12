@@ -1,0 +1,9 @@
+script.Parent.Touched:Connect(function(hit)
+	local plr = game.Players:GetPlayerFromCharacter(hit.Parent)
+	if plr  then
+		if not plr.PlayerGui:FindFirstChild("GunShop") then
+			script.Parent.RemoteEvent:FireClient(plr)
+			script.Parent:FindFirstChild("GunShop"):Clone().Parent = plr.PlayerGui
+		end
+	end
+end)
